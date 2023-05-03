@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   five_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 03:32:49 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 17:27:02 by tlivroze         ###   ########.fr       */
+/*   Created: 2023/05/03 15:28:19 by tlivroze          #+#    #+#             */
+/*   Updated: 2023/05/03 18:41:36 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	ft_push(t_pile **a, t_pile **b)
+void	five_sort(t_pile **a, t_pile **b)
 {
-	t_pile	*tmp;
+	int	i;
 
-	if ((*b))
+	while (ft_pilesize(*a) > 3)
 	{
-		ft_pileadd_front(a, ft_pilenew((*b)->value, (*b)->index));
-		tmp = (*b)->next;
-		ft_piledelone(*b);
-		*b = tmp;
-		return (true);
+		i = get_position(*a, get_minimum(*a));
+		if (i < ft_pilesize(*a) / 2)
+		{
+			while ((*a)->value != get_minimum(*a))
+				ra(a);
+		}
+		else
+		{
+			while ((*a)->value != get_minimum(*a))
+				rra(a);
+		}
+		pb(a, b);
 	}
-	return (false);
-}
-
-void	pa(t_pile **a, t_pile **b)
-{
-	if (ft_push(a, b) == true)
-		write(1, "pa\n", 3);
-}
-
-void	pb(t_pile **a, t_pile **b)
-{
-	if (ft_push(b, a) == true)
-		write(1, "pb\n", 3);
+	small_sort(a);
+	while (*b)
+		pa(a,b);
 }

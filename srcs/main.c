@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:41:31 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 14:25:34 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:41:43 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,27 @@ int	main(int argc, char **argv)
 	t_data	data;
 	t_pile	*a;
 	t_pile	*b;
+	int		temp;
 
 	if (verif(argv, argc, &data) == -1)
-		return (0);
+		return (1);
 	a = NULL;
 	b = NULL;
-	printf("%i\n", data.size);
-	while (data.size > 0)
+	(void)b;
+	temp = data.size;
+	while (temp > 0)
 	{
-		ft_pileadd_front(&a, ft_pilenew(data.tab[data.size - 1], -1));
-		data.size--;
+		ft_pileadd_front(&a, ft_pilenew(data.tab[temp - 1], -1));
+		temp--;
 	}
-	rra(&a);
-	print_all_pile(&a, &b);
-	return (1);
+	if (ft_issorted(a) == true)
+		return (0);	
+	if (data.size == 2 && a->value > a->next->value)
+		sa(a);
+	else if (data.size == 3)
+		small_sort(&a);
+	else if (data.size <= 10)
+		five_sort(&a, &b);
+	print_all_pile(&a,&b);
+	return (0);
 }

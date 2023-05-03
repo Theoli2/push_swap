@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:47:11 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 14:24:37 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:54:00 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
+# include <limits.h>
 # include <stdbool.h>
 # include "libft/libft.h"
 
@@ -34,6 +35,9 @@ typedef struct s_pile
 
 
 int			verif(char **argv, int argc, t_data *data);
+int			get_position(t_pile *a, int value);
+int			get_minimum(t_pile *a);
+int			ft_pilesize(t_pile *lst);
 void		ft_pileadd_front(t_pile **lst, t_pile *new);
 void		ft_pileadd_back(t_pile **lst, t_pile *new);
 void		print_pile(t_pile **pile);
@@ -49,7 +53,10 @@ void		rs(t_pile **a, t_pile **b);
 void		rra(t_pile **a);
 void		rrb(t_pile **b);
 void		rrs(t_pile **a, t_pile **b);
+void		small_sort(t_pile **a);
 void		ft_piledelone(t_pile *lst);
+void		five_sort(t_pile **a, t_pile **b);
+bool		ft_issorted(t_pile	*a);
 t_pile		*ft_pilelast(t_pile *lst);
 t_pile		*ft_pilenew(int value, int index);
 

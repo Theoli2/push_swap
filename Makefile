@@ -14,11 +14,15 @@ BONUS_SRC_PATH = push_swap_bonus/srcs/
 SRC     =   main.c \
 			verif.c \
 			utils.c \
+			utils2.c \
 			print_pile.c \
 			swap.c \
 			push.c \
 			rotate.c \
 			reverse_rotate.c \
+			small_sort.c \
+			five_sort.c \
+
 
 
 #BONUS_SRC	= 
