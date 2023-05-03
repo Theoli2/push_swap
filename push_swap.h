@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:47:11 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/02 00:17:59 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/03 06:12:45 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ void		ft_pileadd_front(t_pile **lst, t_pile *new);
 void		ft_pileadd_back(t_pile **lst, t_pile *new);
 void		print_pile(t_pile **pile);
 void		print_all_pile(t_pile **a, t_pile **b);
+void		ft_swap(t_pile *pile);
+void		ft_swaps(t_pile *a, t_pile *b);
 
 #endif

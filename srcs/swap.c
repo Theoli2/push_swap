@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 17:41:31 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 05:53:54 by tlivroze         ###   ########.fr       */
+/*   Created: 2023/05/03 03:32:40 by tlivroze          #+#    #+#             */
+/*   Updated: 2023/05/03 06:14:46 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_swap(t_pile *pile)
 {
-	t_data	data;
-	t_pile	*a;
-	t_pile	*b;
+	int	temp;
 
-	if (verif(argv, argc, &data) == -1)
-		return (0);
-	a = NULL;
-	b = NULL;
-	printf("%i\n", data.size);
-	while (data.size > 0)
+	if (pile && pile->next)
 	{
-		ft_pileadd_front(&a, ft_pilenew(data.tab[data.size - 1]));
-		data.size--;
+		temp = pile->value;
+		pile->value = pile->next->value;
+		pile->next->value = temp;		
 	}
-	ft_swap(&a);
-	print_all_pile(&a, &b);
-	return (1);
+}
+
+void	ft_swaps(t_pile *a, t_pile *b)
+{
+	ft_swap(a);
+	ft_swap(b);
 }

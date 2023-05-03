@@ -15,6 +15,10 @@ SRC     =   main.c \
 			verif.c \
 			utils.c \
 			print_pile.c \
+			swap.c \
+			push.c \
+			rotate.c \
+			reverse_rotate.c \
 
 
 #BONUS_SRC	= 
