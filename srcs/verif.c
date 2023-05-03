@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:12:45 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/02 04:50:16 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:28:42 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	verif(char **argv, int argc, t_data *data)
 	i = 1;
 	if (arg_is_nb(argv) == -1)
 		return (-1);
-	data->tab = malloc(sizeof(int) * argc - 1);
+	data->tab = malloc(sizeof(int) * (argc - 1));
 	if (data->tab == NULL)
 		return (-1);
 	while (argv[i])

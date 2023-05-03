@@ -6,16 +6,35 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 03:32:49 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 07:17:46 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:33:21 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_push(t_pile **a, t_pile **b)
+bool	ft_push(t_pile **a, t_pile **b)
 {
+	t_pile	*tmp;
+
 	if ((*b)->next)
 	{
-		
+		ft_pileadd_front(a, ft_pilenew((*b)->value, (*b)->index));
+		tmp = (*b)->next;
+		ft_piledelone(*b);
+		*b = tmp;
+		return (true);
 	}
+	return (false);
+}
+
+void	pa(t_pile **a, t_pile **b)
+{
+	if (ft_push(a, b) == true)
+		write(1, "pa\n", 3);
+}
+
+void	pb(t_pile **a, t_pile **b)
+{
+	if (ft_push(b, a) == true)
+		write(1, "pb\n", 3);
 }
