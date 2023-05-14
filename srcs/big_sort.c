@@ -6,11 +6,49 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:24:04 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/14 01:11:34 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/14 03:25:19 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+
+void	final_rb(t_pile **b)
+{
+	t_pile	*head;
+	int		index;
+	int		pos;
+
+	head = *b;
+	index = find_biggest(head);
+	// head = *b;
+	pos = 0;
+	// printf("index = %d\n", index);
+	while (head != NULL && head->index != index)
+	{
+		pos++;
+		head = head->next;
+	}
+	// printf("pos = %d\n", pos);
+	if (pos < index / 2)
+	{
+		while (pos)
+		{
+			rb(b);
+			pos--;
+		}
+	}
+	else
+	{
+		pos = index - pos + 1;
+		// printf("pos = %d\n", pos);
+		while (pos)
+		{
+			// printf("pos = %d\n", pos);
+			rrb(b);
+			pos--;
+		}
+	}
+}
 
 void	push_elem_a_to_b(t_pile **a, t_pile **b, t_moves best)
 {
@@ -73,8 +111,10 @@ void	big_sort(t_pile **a, t_pile **b)
 	t_pile	*head;
 	int		size;
 
-	head = *a;
 	size = 0;
+	pb(a, b);
+	pb(a, b);
+	head = *a;
 	while (*a)
 	{
 		size++;
@@ -87,11 +127,15 @@ void	big_sort(t_pile **a, t_pile **b)
 		// printf("best index = %d\n", best.index);
 		// printf("best total = %d\n", best.total);
 		push_elem_a_to_b(a, b, best);
-		print_all_pile(a, b);
+		// print_all_pile(a, b);
 		size--;
 	}
+	// print_all_pile(a, b);
+	printf("%d\n", (*b)->value);
+	final_rb(b);
 	while (*b)
 		pa(a, b);
+	// print_all_pile(a, b);
 	if (ft_issorted(*a))
 		exit(0);
 }

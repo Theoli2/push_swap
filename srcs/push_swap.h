@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:47:11 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/14 01:02:00 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/14 02:56:57 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int			verif(char **argv, int argc, t_data *data);
 int			get_position(t_pile *a, int value);
 int			get_minimum(t_pile *a);
 int			ft_pilesize(t_pile *lst);
+int			find_biggest(t_pile *b);
 void		ft_pileadd_front(t_pile **lst, t_pile *new);
 void		ft_pileadd_back(t_pile **lst, t_pile *new);
 void		print_pile(t_pile **pile);
