@@ -1,20 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_pile.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/14 11:44:09 by tlivroze          #+#    #+#             */
+/*   Updated: 2023/05/14 11:45:30 by tlivroze         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 
-void print_pile(t_pile **pile)
+void	print_pile(t_pile **pile)
 {
-    int i;
-    t_pile *tmp;
+	int		i;
+	t_pile	*tmp;
 
-    if (*pile == NULL) {
-        ft_printf("[ Empty ]\n");
-        return;
-    }
-    i = 0;
-    tmp = (*pile);
-    while ((*pile)->next)
-    {
-        ft_printf("[ %i ]  ",(*pile)->value);
-        ft_printf("[ %i ]\n",(*pile)->index);
+	if (*pile == NULL)
+	{
+		ft_printf("[ Empty ]\n");
+		return;
+	}
+	i = 0;
+	tmp = (*pile);
+	while ((*pile)->next)
+	{
+		ft_printf("[ %i ]  ",(*pile)->value);
+		ft_printf("[ %i ]\n",(*pile)->index);
         (*pile) = (*pile)->next;
         i++;
     }

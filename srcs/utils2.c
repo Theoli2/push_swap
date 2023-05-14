@@ -6,11 +6,32 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 09:04:03 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/09 14:23:01 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/14 11:13:58 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+
+void	do_final_rb(t_pile **b, int pos, int index)
+{
+	if (pos < index / 2)
+	{
+		while (pos)
+		{
+			rb(b);
+			pos--;
+		}
+	}
+	else
+	{
+		pos = index - pos + 1;
+		while (pos)
+		{
+			rrb(b);
+			pos--;
+		}
+	}
+}
 
 bool	ft_issorted(t_pile	*a)
 {

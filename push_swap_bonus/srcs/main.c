@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five_sort.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 15:28:19 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/14 11:43:33 by tlivroze         ###   ########.fr       */
+/*   Created: 2023/05/14 13:33:04 by tlivroze          #+#    #+#             */
+/*   Updated: 2023/05/14 13:45:45 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#include "../checker.h"
 
-void	five_sort(t_pile **a, t_pile **b)
+int	main(int argc, char **argv)
 {
-	int	i;
+	t_data	data;
+	t_pile	*a;
+	t_pile	*b;
 
-	while (ft_pilesize(*a) > 3)
-	{
-		i = get_position(*a, get_minimum(*a));
-		if (i < ft_pilesize(*a) / 2)
-		{
-			while ((*a)->value != get_minimum(*a))
-				ra(a);
-		}
-		else
-		{
-			while ((*a)->value != get_minimum(*a))
-				rra(a);
-		}
-		pb(a, b);
-	}
-	small_sort(a);
-	while (*b)
-		pa(a, b);
+	if (argc == 1)
+		return (1);
+	if (verif_pile(argv, argc, &data) == -1)
+		return (write(2, "Error\n", 6), 1);
 }

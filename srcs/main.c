@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:41:31 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/14 03:03:30 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/14 12:10:44 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,45 @@
 
 void	print_index(t_pile *a)
 {
-	t_pile *b;
+	t_pile	*b;
 
 	b = a;
-	while(a)
+	while (a)
 	{
 		printf("%i\n", a->index);
 		a = a->next;
 	}
 	a = b;
+}
+
+void	free_list(t_pile **list)
+{
+	t_pile	*tmp;
+
+	while (*list)
+	{
+		tmp = (*list)->next;
+		free(*list);
+		*list = tmp;
+	}
+}
+
+void	main2(t_pile *a, t_pile *b, t_data data)
+{
+	if (ft_issorted(a) == true)
+		return ;
+	if (data.size == 2 && a->value > a->next->value)
+		sa(a);
+	else if (data.size == 3)
+		small_sort(&a);
+	else if (data.size < 10)
+		five_sort(&a, &b);
+	else if (data.size >= 10)
+		big_sort(&a, &b);
+	// print_all_pile(&a, &b);
+	free_list(&a);
+	free_list(&b);
+	free(data.tab);
 }
 
 int	main(int argc, char **argv)
@@ -44,17 +74,6 @@ int	main(int argc, char **argv)
 		temp--;
 	}
 	put_index(&a, data);
-	if (ft_issorted(a) == true)
-		return (0);
-	// if (data.size == 2 && a->value > a->next->value)
-	// 	sa(a);
-	// else if (data.size == 3)
-	// 	small_sort(&a);
-	// else if (data.size < 100)
-	// 	five_sort(&a, &b);
-	// else if (data.size >= 100)
-	big_sort(&a, &b);
-	// print_index(a);
-	// print_all_pile(&a, &b);
+	main2(a, b, data);
 	return (0);
 }

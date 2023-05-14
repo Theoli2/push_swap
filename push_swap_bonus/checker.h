@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five_sort.c                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 15:28:19 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/14 11:43:33 by tlivroze         ###   ########.fr       */
+/*   Created: 2023/05/14 13:33:58 by tlivroze          #+#    #+#             */
+/*   Updated: 2023/05/14 13:35:16 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-void	five_sort(t_pile **a, t_pile **b)
+# include <stdio.h>
+# include <math.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <stdbool.h>
+# include "../libft/libft.h"
+
+typedef struct s_data
 {
-	int	i;
+	int	*tab;
+	int	size;
+}				t_data;
 
-	while (ft_pilesize(*a) > 3)
-	{
-		i = get_position(*a, get_minimum(*a));
-		if (i < ft_pilesize(*a) / 2)
-		{
-			while ((*a)->value != get_minimum(*a))
-				ra(a);
-		}
-		else
-		{
-			while ((*a)->value != get_minimum(*a))
-				rra(a);
-		}
-		pb(a, b);
-	}
-	small_sort(a);
-	while (*b)
-		pa(a, b);
-}
+typedef struct s_pile
+{
+	int				value;
+	int				index;
+	struct s_pile	*next;
+}				t_pile;
+
+#endif

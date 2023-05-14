@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:47:11 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/14 02:56:57 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/14 12:08:08 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ typedef struct s_moves
 {
 	int	index;
 	int	ra;
-	int rb;
-	int rr;
+	int	rb;
+	int	rr;
 	int	rra;
-	int rrb;
-	int rrr;
+	int	rrb;
+	int	rrr;
 	int	total;
 }				t_moves;
 
@@ -74,11 +74,13 @@ void		ft_piledelone(t_pile *lst);
 void		five_sort(t_pile **a, t_pile **b);
 void		put_index(t_pile **a, t_data data);
 void		big_sort(t_pile **a, t_pile **b);
+void		do_final_rb(t_pile **b, int pos, int index);
 bool		ft_issorted(t_pile	*a);
 t_pile		*ft_pilelast(t_pile *lst);
 t_pile		*ft_pilenew(int value, int index);
 t_moves		calc_moves_a(t_pile **a, t_moves curr);
 t_moves		calc_moves_b(t_pile **b, t_moves curr);
 t_moves		optimize_moves(t_moves curr);
+t_moves		calc_moves_b_bis(t_pile	*head, t_moves curr, int index, int size);
 
 #endif

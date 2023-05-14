@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 03:33:14 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/11 18:10:46 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/14 11:45:58 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ bool	reverse_rotate(t_pile **a)
 	t_pile	*tmp;
 	t_pile	*head;
 
-	if (*a && (*a)->next)
+	if (*a)
 	{
 		head = *a;
 		tmp = ft_pilelast(*a);
-		while ((*a)->next->next)
-			*a = (*a)->next;
-		(*a)->next = NULL;
-		*a = head;
+		while (head->next->next)
+			head = head->next;
+		head->next = NULL;
 		ft_pileadd_front(a, ft_pilenew(tmp->value, tmp->index));
+		free(tmp);
 		return (true);
 	}
 	return (false);

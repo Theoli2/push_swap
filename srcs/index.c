@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:24:25 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/11 18:59:30 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/14 11:46:54 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,7 @@ void	put_index(t_pile **a, t_data data)
 		while ((*a))
 		{
 			if ((*a)->value == tab[index])
-			{
 				(*a)->index = index;
-			}
 			(*a) = (*a)->next;
 		}
 		(*a) = head;

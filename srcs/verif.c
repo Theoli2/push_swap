@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:12:45 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/09 14:22:56 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/14 10:53:07 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ int	arg_is_nb(char **av)
 	return (1);
 }
 
-int	verif_double(int *tab)
+int	verif_double(int *tab, t_data *data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (tab[i])
+	while (i + 1 < data->size)
 	{
 		j = i + 1;
-		while (tab[j])
+		while (j < data->size)
 		{
 			if (tab[i] == tab[j])
 			{
@@ -82,7 +82,7 @@ int	verif(char **argv, int argc, t_data *data)
 		i++;
 	}
 	data->size = i - 1;
-	if (verif_double(data->tab) == -1)
+	if (verif_double(data->tab, data) == -1)
 		return (-1);
 	return (1);
 }

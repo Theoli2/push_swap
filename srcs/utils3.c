@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five_sort.c                                        :+:      :+:    :+:   */
+/*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 15:28:19 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/14 11:43:33 by tlivroze         ###   ########.fr       */
+/*   Created: 2023/05/14 11:48:06 by tlivroze          #+#    #+#             */
+/*   Updated: 2023/05/14 12:08:44 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-void	five_sort(t_pile **a, t_pile **b)
+t_moves	calc_moves_b_bis(t_pile	*head, t_moves curr, int index, int size)
 {
-	int	i;
+	int	pos;
 
-	while (ft_pilesize(*a) > 3)
+	pos = 0;
+	while (head && index != head->index)
 	{
-		i = get_position(*a, get_minimum(*a));
-		if (i < ft_pilesize(*a) / 2)
-		{
-			while ((*a)->value != get_minimum(*a))
-				ra(a);
-		}
-		else
-		{
-			while ((*a)->value != get_minimum(*a))
-				rra(a);
-		}
-		pb(a, b);
+		pos++;
+		head = head->next;
 	}
-	small_sort(a);
-	while (*b)
-		pa(a, b);
+	if (pos < size / 2)
+		curr.rb = pos;
+	else
+		curr.rrb = size - pos;
+	return (curr);
 }
