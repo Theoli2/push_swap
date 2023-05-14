@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 03:33:14 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 14:24:55 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:10:46 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 bool	reverse_rotate(t_pile **a)
 {
@@ -43,12 +43,12 @@ void	rrb(t_pile **b)
 		write(1, "rrb\n", 4);
 }
 
-void	rrs(t_pile **a, t_pile **b)
+void	rrr(t_pile **a, t_pile **b)
 {
 	if (*a && (*a)->next && *b && (*b)->next)
 	{
 		reverse_rotate(a);
 		reverse_rotate(b);
-		write(1, "rrs\n", 4);
+		write(1, "rrr\n", 4);
 	}
 }

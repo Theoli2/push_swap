@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:28:19 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 18:41:36 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:22:21 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 void	five_sort(t_pile **a, t_pile **b)
 {

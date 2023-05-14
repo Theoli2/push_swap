@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 14:31:00 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 18:40:41 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:22:42 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 void	small_sort_bis(t_pile **a)
 {

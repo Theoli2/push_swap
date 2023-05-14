@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 03:32:49 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 17:27:02 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:22:29 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 bool	ft_push(t_pile **a, t_pile **b)
 {

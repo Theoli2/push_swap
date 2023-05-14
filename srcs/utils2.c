@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 09:04:03 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 18:12:33 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:23:01 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 bool	ft_issorted(t_pile	*a)
 {

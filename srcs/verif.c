@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:12:45 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 12:28:42 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:22:56 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 int	arg_is_nb(char **av)
 {
@@ -24,8 +24,8 @@ int	arg_is_nb(char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			//if (!((av[i][j] == '-' || av[i][j] == '+' ) && ft_isdigit(av[i][j + 1]) == 0) && ft_isdigit(av[i][j]) == 0)
-			if (ft_isdigit(av[i][j]) == 0 && (j != 0 && (av[i][j] != '-' || av[i][j] != '+')))
+			if (ft_isdigit(av[i][j]) == 0 && (j != 0 && (av[i][j] \
+			!= '-' || av[i][j] != '+')))
 			{
 				printf("test\n");
 				return (-1);

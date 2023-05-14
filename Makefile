@@ -22,6 +22,10 @@ SRC     =   main.c \
 			reverse_rotate.c \
 			small_sort.c \
 			five_sort.c \
+			index.c \
+			big_sort.c \
+			calculate_moves.c \
+			do_rotate.c \
 
 
 
@@ -70,5 +74,8 @@ fclean: clean
 #	rm -f $(BONUS_NAME)
 
 re: fclean all
+
+norm: 
+	norminette $(LIBFT_PATH) $(SRC_PATH)
 
 .PHONY: all clean fclean re
