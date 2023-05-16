@@ -31,6 +31,17 @@ SRC     =   main.c \
 
 
 BONUS_SRC	= main.c \
+			verif_pile.c \
+			utils.c \
+			read.c \
+			push.c \
+			swap.c \
+			rotate.c \
+			reverse_rotate.c \
+			execution.c \
+
+
+			
 
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
