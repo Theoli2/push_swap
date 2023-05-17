@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:24:04 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/14 11:14:16 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:39:17 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	big_sort(t_pile **a, t_pile **b)
 	t_moves	best;
 	t_pile	*head;
 	int		size;
+	int		i;
 
 	size = 0;
 	pb(a, b);
@@ -89,15 +90,34 @@ void	big_sort(t_pile **a, t_pile **b)
 		*a = (*a)->next;
 	}
 	*a = head;
-	while (size)
+	i = 0;
+	while (i < size / 2)
 	{
 		best = calc_best_moves(a, b, best);
 		push_elem_a_to_b(a, b, best);
-		size--;
+		i++;
 	}
 	final_rb(b);
 	while (*b)
 		pa(a, b);
+	i = 2;
+	rra(a);
+	pb(a, b);
+	rra(a);
+	pb(a, b);
+	while (i < size / 2)
+	{
+		best = calc_best_moves(a, b, best);
+		push_elem_a_to_b(a, b, best);
+		i++;
+	}
+	i = 0;
+	while (i < size / 2)
+	{
+		best = calc_best_moves_rev(a, b, best);
+		push_elem_b_to_a(a, b, best);
+		i++;
+	}
 	// if (ft_issorted(*a))
 	// 	exit(0);
 }

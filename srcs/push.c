@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 03:32:49 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/09 14:22:29 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/16 06:48:35 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ bool	ft_push(t_pile **a, t_pile **b)
 
 	if ((*b))
 	{
-		ft_pileadd_front(a, ft_pilenew((*b)->value, (*b)->index));
 		tmp = (*b)->next;
-		ft_piledelone(*b);
-		*b = tmp;
+		(*b)->next = (*a);
+		(*a) = (*b);
+		(*b) = tmp;
 		return (true);
 	}
 	return (false);

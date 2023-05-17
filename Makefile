@@ -25,7 +25,9 @@ SRC     =   main.c \
 			five_sort.c \
 			index.c \
 			big_sort.c \
+			big_sort_bis.c \
 			calculate_moves.c \
+			calculate_moves_rev.c \
 			do_rotate.c \
 
 

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 03:33:17 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 03:44:55 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/16 07:01:04 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 bool	ft_rotate(t_pile **a)
 {
 	t_pile	*tmp;
+	t_pile	*head;
 
-	if (*a && (*a)->next)
+	if (*a)
 	{
+		head = (*a);
 		tmp = (*a);
-		*a = (*a)->next;
+		while (head->next)
+			head = head->next;
+		head->next = tmp;
+		*a = tmp->next;
 		tmp->next = NULL;
-		ft_pileadd_back(a, ft_pilenew(tmp->value, tmp->index));
-		ft_piledelone(tmp);
 		return (true);
 	}
 	return (false);

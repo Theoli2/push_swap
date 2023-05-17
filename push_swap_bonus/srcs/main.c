@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:33:04 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 04:29:59 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/16 06:41:56 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,30 @@ bool	ft_issorted(t_pile	*a)
 	}
 	a = tmp;
 	return (true);
+}
+
+void	print_pile(t_pile **pile)
+{
+	int		i;
+	t_pile	*tmp;
+
+	if (*pile == NULL)
+	{
+		ft_printf("[ Empty ]\n");
+		return;
+	}
+	i = 0;
+	tmp = (*pile);
+	while ((*pile)->next)
+	{
+		ft_printf("[ %i ]  ",(*pile)->value);
+		ft_printf("[ %i ]\n",(*pile)->index);
+        (*pile) = (*pile)->next;
+        i++;
+    }
+    ft_printf("[ %i ]  ",(*pile)->value);
+    ft_printf("[ %i ]\n\n",(*pile)->index);
+    (*pile) = tmp;
 }
 
 int	main(int argc, char **argv)
@@ -75,6 +99,7 @@ int	main(int argc, char **argv)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+	print_pile(&a);
 	free(line);
 	free_list(&a);
 	free_list(&b);
