@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 08:41:40 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 10:11:56 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/18 02:49:45 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ int	find_smallest(t_pile *a)
 int	find_smallest_bigger_rev(t_pile *a, int index, int size)
 {
 	int	index_a;
-	(void)size;
 
+	(void)size;
 	index_a = find_biggest(a);
 	while (a)
 	{

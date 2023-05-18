@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:41:31 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 08:21:08 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/18 07:37:37 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,12 @@ void	main2(t_pile *a, t_pile *b, t_data data)
 {
 	if (ft_issorted(a) == true)
 		return ;
-	// if (data.size == 2 && a->value > a->next->value)
-	// 	sa(a);
-	// else if (data.size == 3)
-	// 	small_sort(&a);
-	// else if (data.size < 10)
-	// 	five_sort(&a, &b);
-	// else if (data.size >= 10)
-	big_sort(&a, &b);
+	if (data.size == 2 && a->value > a->next->value)
+		sa(a);
+	else if (data.size == 3)
+		small_sort(&a);
+	else if (data.size > 3)
+		big_sort_alt(&a, &b);
 	// print_all_pile(&a, &b);
 	free_list(&a);
 	free_list(&b);
