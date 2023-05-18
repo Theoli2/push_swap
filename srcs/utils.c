@@ -6,31 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:28:25 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 06:51:17 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/18 08:00:47 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
-
-void	ft_piledelone(t_pile *lst)
-{
-	if (!lst)
-		return ((void)0);
-	if (lst->value)
-		free(lst);
-}
-
-void	ft_pileadd_back(t_pile **lst, t_pile *new)
-{
-	if (!lst || !new)
-		return ((void)0);
-	if (!*lst)
-	{
-		*lst = new;
-		return ((void)0);
-	}
-	ft_pilelast(*lst)->next = new;
-}
 
 void	ft_pileadd_front(t_pile **lst, t_pile *new)
 {
@@ -60,4 +40,33 @@ t_pile	*ft_pilelast(t_pile *lst)
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
+}
+
+bool	ft_issorted(t_pile	*a)
+{
+	t_pile	*tmp;
+
+	tmp = a;
+	while (a->next)
+	{
+		if (a->value < a->next->value)
+			a = a->next;
+		else
+			return (false);
+	}
+	a = tmp;
+	return (true);
+}
+
+t_moves	init(t_moves moves, int init, int index)
+{
+	moves.index = index;
+	moves.ra = init;
+	moves.rb = init;
+	moves.rr = init;
+	moves.rra = init;
+	moves.rrb = init;
+	moves.rrr = init;
+	moves.total = init;
+	return (moves);
 }

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:12:45 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 03:25:25 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/18 09:29:22 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	verif_only_plus_minus(char *str)
 	}
 	return (0);
 }
-
 
 int	verif_double(int *tab, t_data *data)
 {

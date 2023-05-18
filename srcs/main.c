@@ -6,24 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:41:31 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/18 07:37:37 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/18 08:02:23 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
-
-void	print_index(t_pile *a)
-{
-	t_pile	*b;
-
-	b = a;
-	while (a)
-	{
-		printf("%i\n", a->index);
-		a = a->next;
-	}
-	a = b;
-}
 
 void	free_list(t_pile **list)
 {
@@ -46,8 +33,7 @@ void	main2(t_pile *a, t_pile *b, t_data data)
 	else if (data.size == 3)
 		small_sort(&a);
 	else if (data.size > 3)
-		big_sort_alt(&a, &b);
-	// print_all_pile(&a, &b);
+		big_sort(&a, &b);
 	free_list(&a);
 	free_list(&b);
 	free(data.tab);

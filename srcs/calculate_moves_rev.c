@@ -6,27 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 08:41:40 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/18 02:49:45 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/18 08:04:14 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
-
-// int	find_smallest(t_pile *a)
-// {
-// 	t_pile	*head;
-// 	int		smallest;
-
-// 	head = a;
-// 	smallest = head->index;
-// 	while (head)
-// 	{
-// 		if (head->index < smallest)
-// 			smallest = head->index;
-// 		head = head->next;
-// 	}
-// 	return (smallest);
-// }
 
 int	find_smallest(t_pile *a)
 {
@@ -44,31 +28,21 @@ int	find_smallest(t_pile *a)
 	return (index_min);
 }
 
-// int	find_smallest_bigger(t_pile *a, int index, int size)
-// {
-// 	t_pile	*head;
+int	find_biggest(t_pile *b)
+{
+	t_pile	*head;
+	int		biggest;
 
-// 	printf("index initial = %d\n", index);
-// 	index = index + 1;
-// 	head = a;
-// 	// printf("size = %d\n", size);
-// 	while (index < size)
-// 	{
-// 		while (head)
-// 		{
-// 			if (head->index == index)
-// 			{
-// 				// printf("index = %d\n", head->index);
-// 				return (head->index);
-// 			}
-// 			head = head->next;
-// 		}
-// 		index++;
-// 		head = a;
-// 	}
-// 	printf("je trouve cet index = %d\n", index - 1);
-// 	return (-1);
-// }
+	head = b;
+	biggest = head->index;
+	while (head)
+	{
+		if (head->index > biggest)
+			biggest = head->index;
+		head = head->next;
+	}
+	return (biggest);
+}
 
 int	find_smallest_bigger_rev(t_pile *a, int index, int size)
 {

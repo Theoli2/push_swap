@@ -14,9 +14,6 @@ BONUS_OBJ_PATH = push_swap_bonus/obj/
 SRC     =   main.c \
 			verif.c \
 			utils.c \
-			utils2.c \
-			utils3.c \
-			print_pile.c \
 			swap.c \
 			push.c \
 			rotate.c \
@@ -24,7 +21,6 @@ SRC     =   main.c \
 			small_sort.c \
 			index.c \
 			big_sort.c \
-			big_sort_maxou.c \
 			big_sort_bis.c \
 			calculate_moves.c \
 			calculate_moves_rev.c \
