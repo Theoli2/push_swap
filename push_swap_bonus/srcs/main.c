@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:33:04 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/18 09:46:31 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/19 01:07:13 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main2(t_pile *a, t_pile *b, t_data data, char *line)
 {
 	if (line == NULL)
 	{
+		printf("ping\n");
 		free(line);
 		free_list(&b);
 		free_list(&a);
@@ -84,6 +85,7 @@ int	main(int argc, char **argv)
 		temp--;
 	}
 	line = read_instructions();
+	printf("line = %s\n", line);
 	main2(a, b, data, line);
 	return (0);
 }
