@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 03:33:17 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 07:01:04 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/18 09:43:42 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,12 @@ bool	ft_rotate(t_pile **a)
 
 void	ra(t_pile **a)
 {
-	if (ft_rotate(a) == true)
-		write(1, "ra\n", 3);
+	ft_rotate(a);
 }
 
 void	rb(t_pile **b)
 {
-	if (ft_rotate(b) == true)
-		write(1, "rb\n", 3);
+	ft_rotate(b);
 }
 
 void	rr(t_pile **a, t_pile **b)
@@ -49,6 +47,5 @@ void	rr(t_pile **a, t_pile **b)
 	{
 		ft_rotate(a);
 		ft_rotate(b);
-		write(1, "rr\n", 3);
 	}
 }

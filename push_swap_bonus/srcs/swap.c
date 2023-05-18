@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 03:32:40 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 03:44:59 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/18 09:44:08 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,12 @@ bool	ft_swap(t_pile *pile)
 
 void	sa(t_pile *a)
 {
-	if (ft_swap(a) == true)
-		write(1, "sa\n", 3);
+	ft_swap(a);
 }
 
 void	sb(t_pile *b)
 {
-	if (ft_swap(b) == true)
-		write(1, "sb\n", 3);
+	ft_swap(b);
 }
 
 void	ss(t_pile *a, t_pile *b)
@@ -47,6 +45,5 @@ void	ss(t_pile *a, t_pile *b)
 	{
 		ft_swap(a);
 		ft_swap(b);
-		write(1, "ss\n", 3);
 	}
 }

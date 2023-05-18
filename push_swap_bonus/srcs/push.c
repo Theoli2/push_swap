@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 03:32:49 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 06:46:47 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/18 09:42:40 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,10 @@ bool	ft_push(t_pile **a, t_pile **b)
 
 void	pa(t_pile **a, t_pile **b)
 {
-	if (ft_push(a, b) == true)
-		write(1, "pa\n", 3);
+	ft_push(a, b);
 }
 
 void	pb(t_pile **a, t_pile **b)
 {
-	if (ft_push(b, a) == true)
-		write(1, "pb\n", 3);
+	ft_push(b, a);
 }

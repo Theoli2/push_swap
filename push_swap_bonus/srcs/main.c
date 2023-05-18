@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:33:04 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 06:41:56 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/18 09:46:31 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,28 +40,26 @@ bool	ft_issorted(t_pile	*a)
 	return (true);
 }
 
-void	print_pile(t_pile **pile)
+int	main2(t_pile *a, t_pile *b, t_data data, char *line)
 {
-	int		i;
-	t_pile	*tmp;
-
-	if (*pile == NULL)
+	if (line == NULL)
 	{
-		ft_printf("[ Empty ]\n");
-		return;
+		free(line);
+		free_list(&b);
+		free_list(&a);
+		free(data.tab);
+		return (write(2, "Error\n", 6), 1);
 	}
-	i = 0;
-	tmp = (*pile);
-	while ((*pile)->next)
-	{
-		ft_printf("[ %i ]  ",(*pile)->value);
-		ft_printf("[ %i ]\n",(*pile)->index);
-        (*pile) = (*pile)->next;
-        i++;
-    }
-    ft_printf("[ %i ]  ",(*pile)->value);
-    ft_printf("[ %i ]\n\n",(*pile)->index);
-    (*pile) = tmp;
+	execute_instructions(line, &a, &b);
+	if (ft_issorted(a) == true && b == NULL)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	free(line);
+	free_list(&a);
+	free_list(&b);
+	free(data.tab);
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -86,23 +84,6 @@ int	main(int argc, char **argv)
 		temp--;
 	}
 	line = read_instructions();
-	if (line == NULL)
-	{
-		free(line);
-		free_list(&b);
-		free_list(&a);
-		free(data.tab);
-		return (write(2, "Error\n", 6), 1);
-	}
-	execute_instructions(line, &a, &b);
-	if (ft_issorted(a) == true && b == NULL)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
-	print_pile(&a);
-	free(line);
-	free_list(&a);
-	free_list(&b);
-	free(data.tab);
+	main2(a, b, data, line);
 	return (0);
 }
