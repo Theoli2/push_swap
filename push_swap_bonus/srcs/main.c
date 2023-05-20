@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:33:04 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/19 01:07:13 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/20 03:54:51 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,10 @@ int	main2(t_pile *a, t_pile *b, t_data data, char *line)
 {
 	if (line == NULL)
 	{
-		printf("ping\n");
-		free(line);
 		free_list(&b);
 		free_list(&a);
 		free(data.tab);
-		return (write(2, "Error\n", 6), 1);
+		return (1);
 	}
 	execute_instructions(line, &a, &b);
 	if (ft_issorted(a) == true && b == NULL)
@@ -85,7 +83,7 @@ int	main(int argc, char **argv)
 		temp--;
 	}
 	line = read_instructions();
-	printf("line = %s\n", line);
+	get_next_line_close();
 	main2(a, b, data, line);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 02:55:33 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/19 01:08:01 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/20 03:55:05 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,10 @@ char	*read_instructions(void)
 	while (1)
 	{
 		buffer = get_next_line(STDIN_FILENO);
-		if (check_instructions(buffer) == -1)
-		{
-			printf("line= %s\n", line);
-			return (write(2, "Error\n", 6), free(buffer), free(line), NULL);
-		}
 		if (buffer == NULL)
 			return (free(buffer), line);
+		if (check_instructions(buffer) == -1)
+			return (write(2, "Error\n", 6), free(buffer), free(line), NULL);
 		if (line == NULL)
 			line = ft_strdup(buffer);
 		else

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:32:34 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/02/07 17:27:32 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/20 03:53:52 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ char	*get_next_line(int fd);
 //size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy_gnl(char *dst, const char *src, size_t size);
 char	*ft_strjoin_gnl(char *s1, const char *s2);
+void	get_next_line_close(void);
+char	**get_stack(void);
 
 #endif

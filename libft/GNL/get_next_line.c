@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:32:31 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/19 00:31:09 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/20 02:43:33 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*ft_clearstash(char *stash)
 	int		i;
 	char	*height;
 
+	height = NULL;
 	if (stash == NULL)
 		return (NULL);
 	if (ft_strchr(stash, '\n'))
@@ -37,6 +38,7 @@ char	*ft_clearstash(char *stash)
 		return (height);
 	}
 	free(stash);
+	free(height);
 	return (NULL);
 }
 
@@ -95,12 +97,22 @@ char	*ft_readfd(int fd, char *stash)
 	return (stash);
 }
 
+char	**get_stack(void)
+{
+	static char	*stack = NULL;
+
+	return (&stack);
+}
+
 char	*get_next_line(int fd)
 {
-	static char		*stash = NULL;
-	char			*line;
+	char	**stash;
+	char	*line;
 
-	return (line = NULL, stash = ft_readfd(fd, stash),
-		line = ft_line(line, stash),
-		stash = ft_clearstash(stash), line);
+	stash = get_stack();
+	line = NULL;
+	*stash = ft_readfd(fd, *stash);
+	line = ft_line(line, *stash);
+	*stash = ft_clearstash(*stash);
+	return (line);
 }
