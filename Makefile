@@ -89,4 +89,6 @@ re: fclean all
 norm: 
 	norminette $(LIBFT_PATH) $(SRC_PATH) $(BONUS_SRC_PATH)
 
+bonus: $(BONUS_NAME)
+
 .PHONY: all clean fclean re

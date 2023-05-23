@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:46:32 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/16 03:15:11 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/23 06:07:06 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,24 @@ int	verif_double(int *tab, t_data *data)
 	return (1);
 }
 
+int	verif_overflow(char *argv)
+{
+	char	*str;
+
+	if (argv[0] == '+')
+	{
+		str = ft_itoa(ft_atoi(&argv[1]));
+		if (ft_strncmp(&argv[1], str, ft_strlen(str)))
+			return (free(str), -1);
+		free(str);
+	}
+	str = ft_itoa(ft_atoi(argv));
+	if (ft_strncmp(argv, str, ft_strlen(str)))
+		return (free(str), -1);
+	free(str);
+	return (1);
+}
+
 int	verif_pile(char **argv, int argc, t_data *data)
 {
 	int	i;
@@ -73,12 +91,14 @@ int	verif_pile(char **argv, int argc, t_data *data)
 		return (-1);
 	while (i < argc)
 	{
+		if (argv[i][0] == '\0')
+			return (ft_putstr_fd("Error\n", 2), -1);
 		if (verif_only_numbers(argv[i]) == -1)
-			return (-1);
+			return (ft_putstr_fd("Error\n", 2), -1);
 		if (verif_only_plus_minus(argv[i]) == -1)
-			return (-1);
-		if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
-			return (-1);
+			return (ft_putstr_fd("Error\n", 2), -1);
+		if (verif_overflow(argv[i]) == -1)
+			return (ft_putstr_fd("Error\n", 2), -1);
 		data->tab[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}

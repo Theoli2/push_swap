@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:12:45 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/18 09:29:22 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/23 05:29:13 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ int	verif_double(int *tab, t_data *data)
 		while (j < data->size)
 		{
 			if (tab[i] == tab[j])
-			{
-				free(tab);
 				return (-1);
-			}
 			j++;
 		}
 		i++;
@@ -62,9 +59,27 @@ int	verif_double(int *tab, t_data *data)
 	return (1);
 }
 
+int	verif_overflow(char *argv)
+{
+	char	*str;
+
+	if (argv[0] == '+')
+	{
+		str = ft_itoa(ft_atoi(&argv[1]));
+		if (ft_strncmp(&argv[1], str, ft_strlen(str)))
+			return (free(str), -1);
+		free(str);
+	}
+	str = ft_itoa(ft_atoi(argv));
+	if (ft_strncmp(argv, str, ft_strlen(str)))
+		return (free(str), -1);
+	free(str);
+	return (1);
+}
+
 int	verif(char **argv, int argc, t_data *data)
 {
-	int	i;
+	int		i;
 
 	if (argc < 2)
 		return (-1);
@@ -74,17 +89,19 @@ int	verif(char **argv, int argc, t_data *data)
 		return (-1);
 	while (argv[i])
 	{
+		if (argv[i][0] == '\0')
+			return (ft_putstr_fd("Error\n", 2), -1);
 		if (verif_only_numbers(argv[i]) == -1)
-			return (-1);
+			return (ft_putstr_fd("Error\n", 2), -1);
 		if (verif_only_plus_minus(argv[i]) == -1)
-			return (-1);
-		if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
-			return (-1);
+			return (ft_putstr_fd("Error\n", 2), -1);
+		if (verif_overflow(argv[i]) == -1)
+			return (ft_putstr_fd("Error\n", 2), -1);
 		data->tab[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
 	data->size = i - 1;
 	if (verif_double(data->tab, data) == -1)
-		return (-1);
+		return (ft_putstr_fd("Error\n", 2), -1);
 	return (1);
 }
