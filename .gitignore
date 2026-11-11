@@ -1,0 +1,13 @@
+# Build output
+obj/
+push_swap_bonus/obj/
+*.o
+*.a
+/push_swap
+/checker
+
+# Official 42 tester (download it from the project page)
+/checker_linux
+
+# Editor
+.vscode/
